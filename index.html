@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Install NanoCheeZe">
+    <meta property="og:title" content="NanoCheeZe - NanoCheeZe Installation" />
+    <meta property="og:description" content="Install NanoCheeZe!" />
+    <meta property="og:image" content="install.png" />
+    <meta property="og:type" content="website" />
+    <title>NCZ POR Airdrop</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <style>
+       #airdropImage {
+    clip-path: circle(50% at 50% 50%); /* Creates a circular mask */
+}
+#unspentAmount {
+    word-break: break-all; /* Force word wrapping */
+}
+#responseMessage {
+    color: red; /* Red text color */
+    #background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent gray background */
+    padding: 10px; /* Add some padding around the text */
+    margin: 10px 0; /* Add some margin for spacing */
+    border-radius: 5px; /* Optional: round the corners */
+}
+img#airdropImage {
+    max-width: 100%;
+    max-height: 100%; /* This ensures the image does not exceed the viewport height */
+    display: block; /* This will remove any extra space around the image */
+    margin: 0 auto; /* This centers the image horizontally */
+    min-width: 100px; /* Minimum width */
+}
+@media screen and (max-width: 768px) { /* Adjust the max-width as needed */
+    body, h1, h2, h3, h4, h5, h6, p, a, li, button, input, textarea, .class-name { /* List any other elements or classes you want to include */
+        font-size: 90%; /* Adjust the percentage as needed */
+    }
+}
+@media screen and (max-width: 1500px) {
+    .content {
+        flex-direction: column;
+    }
+}
+a, a:visited, a:hover, a:active {
+    color: gray; /* This sets the text color of the link to gray */
+    text-decoration: none; /* Optional: removes the underline from links */
+}
+
+/* If you want a different color for hover state */
+a:hover {
+    color: darkgray; /* Change color on hover */
+}
+#triforce {
+    padding: 25px;
+}
+* {
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    margin: 0; /* Resets default margin */
+    padding: 0; /* Resets default padding */
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: stretch; /* Stretch children across the cross axis */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0;
+    padding: 0;
+}
+
+#morecontent {
+    flex-grow: 1; /* Grow to fill available space */
+    display: flex; /* If you need internal content to use flex layout */
+    justify-content: center; /* Center content horizontally, if needed */
+    align-items: center; /* Center content vertically, if needed */
+    width: 100%; /* Full width */
+    /* Add any additional styling (e.g., background color) here */
+}
+
+    header {
+        text-align: center;
+        margin: 20px 0;
+        background-color: black; /* Semi-transparent background */
+        width: 100%; /* Full width */
+        padding: 10px 0; /* Padding for spacing */
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    .content {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Full width */
+        background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+        padding: 20px; /* Padding for spacing */
+    }
+    .exchange-form {
+        /* Your existing exchange-form styles... */
+    }
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #333;
+        width: 100%;
+    }
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%; /* Ensure canvas does not exceed the viewport width */
+    height: 100%; /* Ensure canvas does not exceed the viewport height */
+}
+    .exchange-form {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 300px; /* Fixed width for the form */
+    }
+    .exchange-form input, .exchange-form select, .exchange-form button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        box-sizing: border-box; /* This ensures padding doesn't affect overall width */
+    }
+    .exchange-form button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .exchange-form button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <header>
+        <h1><a href="https://enter.nanocheeze.com">NanoCheeZe</a> Proof of Reclamation Airdrop</h1>
+    </header>
+<div>
+   <div style="width: 60%; margin: auto;">
+
+<div class="content">
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const imageSources = ['https://info.nanocheeze.com/images/ncz.png'];
+    let images = [];
+
+function createImages() {
+    const numOfImages = Math.floor(Math.random() * 200) + 50; // Random number between 20 and 100
+
+    for (let i = 0; i < numOfImages; i++) {
+        const imgSrc = imageSources[Math.floor(Math.random() * imageSources.length)];
+        const img = {
+            image: new Image(),
+            x: (Math.random() < 0.5 ? -100 : canvas.width + 100), // Start off-screen either to the left or right
+            y: (Math.random() < 0.5 ? -100 : canvas.height + 100), // Start off-screen either above or below
+            speedX: (Math.random() - 0.5) * 5, // Random speed, including negative values
+            speedY: (Math.random() - 0.5) * 5, // Random speed, including negative values
+            scale: Math.random() * 0.9 + 0.1 // Scale between 0.1 and 1.0
+        };
+        img.image.onload = () => {
+            if (img.image.width < 10 || img.image.height < 10) {
+                img.scale = Math.max(10 / img.image.width, 10 / img.image.height);
+            }
+        };
+        img.image.src = imgSrc;
+        images.push(img);
+    }
+}
+function updateAndDraw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    images.forEach(img => {
+        img.x += img.speedX;
+        img.y += img.speedY;
+
+        // Reset position if it moves too far off-screen
+        if (img.x < -200 || img.x > canvas.width + 200 || img.y < -200 || img.y > canvas.height + 200) {
+            img.x = (Math.random() < 0.5 ? -100 : canvas.width + 100);
+            img.y = (Math.random() < 0.5 ? -100 : canvas.height + 100);
+            img.speedX = (Math.random() - 0.5) * 5;
+            img.speedY = (Math.random() - 0.5) * 5;
+        }
+
+        ctx.drawImage(img.image, img.x, img.y, img.image.width * img.scale, img.image.height * img.scale);
+    });
+
+    requestAnimationFrame(updateAndDraw);
+}
+
+createImages();
+updateAndDraw();
+    </script>
+
+
+
+
+<script>
+
+    // Function to initialize (or reinitialize) the canvas
+    function initCanvas() {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set the canvas size to match the window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Your canvas drawing logic here
+        // For example, clearing the canvas and redrawing
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // ... Redrawing logic ...
+        otherImage.style.display = 'block'; // Hide the other image
+    // Reset text sizes to default
+    resetTextSizes();
+
+    }
+
+    // Call initCanvas on window resize
+    window.addEventListener('resize', initCanvas);
+
+// Function to reset text sizes
+function resetTextSizes() {
+    // Select elements and reset their font size
+    document.querySelectorAll('body, h1, h2, h3, p, a, button, input, textarea').forEach(el => {
+        el.style.fontSize = ''; // Resets to default
+    });
+}
+
+</script>
+
+<script>
+var lastAdjustmentTime = Date.now();
+var checkForOtherImageHiding = false;
+    function adjustImageSize() {
+        const image = document.getElementById('airdropImage');
+        if (!image) return;
+
+        // Reset image style to natural size and display
+        image.style.display = 'block';
+        image.style.height = 'auto';
+        image.style.width = 'auto';
+
+        let decreaseSize = function() {
+            if (document.body.scrollHeight > window.innerHeight && image.offsetHeight > 100) {
+                image.style.height = (image.offsetHeight - 1) + 'px';
+                image.style.width = (image.offsetWidth - 1) + 'px';
+                requestAnimationFrame(decreaseSize); // Continue decreasing size
+        lastAdjustmentTime = Date.now(); // Update the time of the last adjustment
+        
+            } else {
+                // Final check for scrollbars
+                checkForScrollBars();
+            }
+        };
+
+        let checkForScrollBars = function() {
+            if (document.body.scrollHeight > window.innerHeight) {
+                image.style.display = 'none'; // Hide the image if scrollbars are still present
+            }
+        };
+
+        decreaseSize();
+    }
+
+    // Adjust image size on window resize and load
+    window.addEventListener('resize', adjustImageSize);
+    window.addEventListener('load', adjustImageSize);
+</script>
+<script>
+    function adjustTextSize() {
+        const image = document.getElementById('airdropImage');
+        if (!image || image.style.display !== 'none') return;
+
+        let decreaseFontSize = function() {
+            if (document.body.scrollHeight > window.innerHeight) {
+                // Select text elements you want to resize
+                document.querySelectorAll('body, h1, h2, h3, p, a, button, input, textarea').forEach(el => {
+                    let currentSize = window.getComputedStyle(el).fontSize;
+                    let newSize = Math.max(parseFloat(currentSize) - 1, 12); // Set 12 as the minimum font size
+                    el.style.fontSize = newSize + 'px';
+                });
+
+                requestAnimationFrame(decreaseFontSize); // Continue decreasing size
+
+
+            }
+        };
+
+        decreaseFontSize();
+    }
+
+    // Call the function when needed
+    setInterval(adjustTextSize, 1000);
+</script>
+<script>
+    function preventScrolling() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function allowScrolling() {
+        document.body.style.overflow = '';
+    }
+
+    // Call this function to prevent scrolling
+    preventScrolling();
+
+    // Optional: Call this function to re-enable scrolling
+    // allowScrolling();
+
+const otherImage = document.getElementById('nczlogo');
+
+function attemptToHideOtherImage() {
+    if (!otherImage) return;
+
+    if (Date.now() - lastAdjustmentTime > 2000 && // 2 seconds have passed
+                     // Check is needed
+        document.body.scrollHeight > window.innerHeight) { // There are still scrollbars
+        otherImage.style.display = 'none'; // Hide the other image
+checkForOtherImageHiding = false; // Reset the flag
+    }
+}
+setInterval(attemptToHideOtherImage, 500); // Check every 500 milliseconds
+
+
+</script>
+
+
+
+    </div>
+
+
+
+
+</div>
+<div><br/><center><div id="responseMessage"><img id="airdropImage" width=200 src="airdrop.png"><br/><br/><h2><a style="color: white; background-color: rgba(128, 128, 128, 0.5); color: white; padding: 5px; text-decoration: none;" href="https://explorer.nanocheeze.com">Explore NanoCheeZe with the NCZ Block Explorer</a></h2></div></center></div>
+<div id="morecontent"><center><a href="https://github.com/cybershrapnel/NanoCheeZe/releases"><img width=200 src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png"></a><br/><h1><a style="color: white; background-color: rgba(128, 128, 128, 0.5); color: white; padding: 5px; text-decoration: none;" href="https://github.com/cybershrapnel/NanoCheeZe/releases">Download the NanoCheeZe Coin Here</a></h1></center></div>
+<div><br/><br/><center><h2><a style="color: white; background-color: rgba(128, 128, 128, 0.5); color: white; padding: 5px; text-decoration: none;" href="https://opreturn.nanocheeze.com">Op_Returns and Airdrop logs can be viewed at the NCZ OP_RETURN Wall</a></h2></center></div>
+  
+  <footer>
+        <p>&copy; 2024 <a href="https://enter.nanocheeze.com">NanoCheeZe</a></p>
+    </footer>
+</body>
+</html>
